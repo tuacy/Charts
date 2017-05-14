@@ -14,10 +14,10 @@ import java.util.List;
 
 public class LineRender implements IRenderAction {
 
-	private Paint mRenderPaint;
-	private List<Render> mRender;
+	private Paint                   mRenderPaint;
+	private List<Render>            mRender;
 	private List<List<RenderPoint>> mRenderPoint;
-	private Path mRenderPath;
+	private Path                    mRenderPath;
 
 	public LineRender(List<Render> renders, float xAxisConvert, float yAxisMin, float yAxisConvert) {
 		mRenderPaint = new Paint();
@@ -25,10 +25,10 @@ public class LineRender implements IRenderAction {
 		mRenderPaint.setAntiAlias(true);
 		mRenderPath = new Path();
 		mRender = renders;
-		mRenderPoint = toRendPoint(renders,xAxisConvert, yAxisMin, yAxisConvert);
+		mRenderPoint = toRendPoint(renders, xAxisConvert, yAxisMin, yAxisConvert);
 	}
 
-	private List<List<RenderPoint>> toRendPoint(List<Render> renders,  float xAxisConvert, float yAxisMin, float yAxisConvert) {
+	private List<List<RenderPoint>> toRendPoint(List<Render> renders, float xAxisConvert, float yAxisMin, float yAxisConvert) {
 		if (renders == null || renders.isEmpty()) {
 			return null;
 		}

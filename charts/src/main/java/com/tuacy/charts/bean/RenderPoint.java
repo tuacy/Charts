@@ -2,10 +2,10 @@ package com.tuacy.charts.bean;
 
 public class RenderPoint {
 
-	private int mXIndex;
+	private int    mXIndex;
 	private Number mValue;
-	private float mPointerX;
-	private float mPointerY;
+	private float  mPointerX;
+	private float  mPointerY;
 
 	public RenderPoint(int XIndex, Number value, float pointerX, float pointerY) {
 		mXIndex = XIndex;

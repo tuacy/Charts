@@ -49,7 +49,7 @@ public class LineChart extends View {
 	private void initData() {
 		mLineAxis = new LineAxis();
 		mXAxis = new Axis(getContext());
-		mXAxis.setTextFormat(new IAxisFormat(){
+		mXAxis.setTextFormat(new IAxisFormat() {
 			@Override
 			public String format(Number axisValue) {
 				return String.format(Locale.getDefault(), "%02d月", axisValue.intValue());
@@ -57,7 +57,7 @@ public class LineChart extends View {
 		});
 		mXAxis.setNumber(8);
 		mYAxis = new Axis(getContext());
-		mYAxis.setTextFormat(new IAxisFormat(){
+		mYAxis.setTextFormat(new IAxisFormat() {
 			@Override
 			public String format(Number axisValue) {
 				return String.format(Locale.getDefault(), "%.02f", axisValue.floatValue());
@@ -101,13 +101,14 @@ public class LineChart extends View {
 	}
 
 	private void drawPrepare() {
-		LineXAxis xAxis = new LineXAxis(mXAxis,mXGrid, mXData);
+		LineXAxis xAxis = new LineXAxis(mXAxis, mXGrid, mXData);
 		LineYAxis yAxis = new LineYAxis(mYAxis, mYGrid, mRenders);
 		mLineAxis.setXAxis(xAxis);
 		mLineAxis.setYAxis(yAxis);
 		float pointeX = mLineAxis.getYAxis().onGetAxisSize();
 		float pointeY = getHeight() - mLineAxis.getXAxis().onGetAxisSize();
-		mRender = new LineRender(mRenders, xAxis.onGetAxisConvert(getWidth() - pointeX), yAxis.onGetAxisMin(), yAxis.onGetAxisConvert(pointeY));
+		mRender = new LineRender(mRenders, xAxis.onGetAxisConvert(getWidth() - pointeX), yAxis.onGetAxisMin(),
+								 yAxis.onGetAxisConvert(pointeY));
 	}
 
 

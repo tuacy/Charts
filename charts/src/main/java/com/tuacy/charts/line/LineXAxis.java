@@ -45,13 +45,14 @@ public class LineXAxis implements IAxisAction {
 		mGridPaint.setStyle(Paint.Style.STROKE);
 		mGridPaint.setAntiAlias(true);
 		mGridPaint.setColor(grid.getLineColor());
-		mGridPaint.setPathEffect(new DashPathEffect(new float[]{grid.getLineFullLength(), grid.getLineDottedLength()}, 0));
+		mGridPaint.setPathEffect(new DashPathEffect(new float[]{grid.getLineFullLength(),
+																grid.getLineDottedLength()}, 0));
 		mGridPath = new Path();
 
 		mAxis = axis;
 
 		mData = new ArrayList<>();
-		for (Number number:axisData) {
+		for (Number number : axisData) {
 			mData.add(axis.getTextFormat().format(number));
 		}
 
@@ -87,7 +88,8 @@ public class LineXAxis implements IAxisAction {
 			float sectionWidth = (xAxisLength - mAxis.getTopTextOffset()) / mAxis.getNumber();
 			for (int index = 0; index < mData.size(); index++) {
 				String text = mData.get(index);
-				canvas.drawText(text, sectionWidth * index, mAxis.getTextSpace() + (mTextMetrics.bottom - mTextMetrics.top) / 2.0f - baseLineOffset , mTextPaint);
+				canvas.drawText(text, sectionWidth * index,
+								mAxis.getTextSpace() + (mTextMetrics.bottom - mTextMetrics.top) / 2.0f - baseLineOffset, mTextPaint);
 			}
 		}
 	}
@@ -111,6 +113,6 @@ public class LineXAxis implements IAxisAction {
 
 	@Override
 	public float onGetAxisConvert(float axisLength) {
-		return  (axisLength - mAxis.getTopTextOffset()) / mAxis.getNumber();
+		return (axisLength - mAxis.getTopTextOffset()) / mAxis.getNumber();
 	}
 }

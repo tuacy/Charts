@@ -25,9 +25,9 @@ public class LineYAxis implements IAxisAction {
 	private Paint                mGridPaint;
 	private Paint.FontMetricsInt mTextMetrics;
 	private Path                 mGridPath;
-	private float mAxisMin;
-	private float mAxisMax;
-	private float mAxisSectionValue;
+	private float                mAxisMin;
+	private float                mAxisMax;
+	private float                mAxisSectionValue;
 
 	public LineYAxis(Axis axis, Grid grid, List<Render> renders) {
 		//绘制轴线的paint
@@ -48,17 +48,18 @@ public class LineYAxis implements IAxisAction {
 		mGridPaint.setStyle(Paint.Style.STROKE);
 		mGridPaint.setAntiAlias(true);
 		mGridPaint.setColor(grid.getLineColor());
-		mGridPaint.setPathEffect(new DashPathEffect(new float[]{grid.getLineFullLength(), grid.getLineDottedLength()}, 0));
+		mGridPaint.setPathEffect(new DashPathEffect(new float[]{grid.getLineFullLength(),
+																grid.getLineDottedLength()}, 0));
 
 		mGridPath = new Path();
 
 		mAxis = axis;
 		//确定y轴上每个点的值
-		float min = 0, max= 0;
-		for(Render render : renders) {
+		float min = 0, max = 0;
+		for (Render render : renders) {
 			if (render.getData() != null && !render.getData().isEmpty()) {
 				for (Number number : render.getData()) {
-					if (number!= null) {
+					if (number != null) {
 						min = Math.min(min, number.floatValue());
 						max = Math.max(max, number.floatValue());
 					}
@@ -88,7 +89,7 @@ public class LineYAxis implements IAxisAction {
 	}
 
 
-	public void onDrawAxisLine(Canvas canvas, float xAxisLength, float yAxisLength ) {
+	public void onDrawAxisLine(Canvas canvas, float xAxisLength, float yAxisLength) {
 		canvas.drawLine(0, 0, 0, -yAxisLength, mLinePaint);
 	}
 
@@ -116,7 +117,7 @@ public class LineYAxis implements IAxisAction {
 			float sectionHeight = (yAxisLength - mAxis.getTopTextOffset()) / mAxis.getNumber();
 			for (int index = 0; index < mData.size(); index++) {
 				String text = mData.get(index);
-				canvas.drawText(text, -mAxis.getTextSpace(), -sectionHeight * index + baseLineOffset , mTextPaint);
+				canvas.drawText(text, -mAxis.getTextSpace(), -sectionHeight * index + baseLineOffset, mTextPaint);
 			}
 		}
 	}

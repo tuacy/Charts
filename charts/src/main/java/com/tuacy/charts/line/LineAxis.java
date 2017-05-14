@@ -37,7 +37,7 @@ public class LineAxis {
 		if (mXAxis != null) {
 			mXAxis.onDraw(canvas, xAxisLength, yAxisLength);
 		}
-		if(mYAxis!= null) {
+		if (mYAxis != null) {
 			mYAxis.onDraw(canvas, xAxisLength, yAxisLength);
 		}
 	}

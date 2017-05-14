@@ -14,7 +14,7 @@ public class Render {
 
 	//颜色
 	private int           mColor;
-	private float mWidth;
+	private float         mWidth;
 	//每个点的数据
 	private List<Number>  mData;
 	private IRenderFormat mFormat;

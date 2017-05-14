@@ -25,9 +25,9 @@ public class Axis {
 	//坐标轴上文字的左边偏移位置(不至于靠的太近)
 	private int         mTextSpace;
 	//坐标轴上画多少个点
-	private int mNumber;
+	private int         mNumber;
 	//坐标轴上顶部点偏移位置
-	private int mTopTextOffset;
+	private int         mTopTextOffset;
 
 	public Axis(Context context) {
 		if (context == null) {
