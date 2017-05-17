@@ -11,6 +11,12 @@
     <com.tuacy.charts.line.LineChart
         android:id="@+id/line_chart"
         android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"/>
+
+    <com.tuacy.charts.line.LineChartPro
+        android:id="@+id/line_chart_pro"
+        android:layout_width="match_parent"
         android:layout_height="200dp"/>
 
 </RelativeLayout>

@@ -5,14 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.tuacy.charts.bean.Render;
+import com.tuacy.charts.data.Entry;
+import com.tuacy.charts.data.LineData;
+import com.tuacy.charts.data.LineDataSet;
 import com.tuacy.charts.line.LineChart;
+import com.tuacy.charts.line.LineChartPro;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-	private LineChart mLineChart;
+	private LineChart    mLineChart;
+	private LineChartPro mLineChartPro;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 	private void initView() {
 		mLineChart = (LineChart) findViewById(R.id.line_chart);
+		mLineChartPro = (LineChartPro) findViewById(R.id.line_chart_pro);
 	}
 
 	private void initEvent() {
@@ -33,6 +40,32 @@ public class MainActivity extends AppCompatActivity {
 
 	private void initData() {
 		mLineChart.setData(getXData(), getYData());
+		mLineChartPro.setData(obtainLineData());
+	}
+
+	private LineData obtainLineData() {
+		List<Entry> entries = new ArrayList<>();
+		entries.add(new Entry(10, 0));
+		entries.add(new Entry(10, 1));
+		entries.add(new Entry(10, 2));
+		entries.add(new Entry(10, 3));
+		entries.add(new Entry(10, 4));
+		entries.add(new Entry(10, 5));
+		entries.add(new Entry(10, 6));
+		entries.add(new Entry(10, 7));
+		LineDataSet dataSet = new LineDataSet(entries);
+		List<String> xValues = new ArrayList<>();
+		xValues.add("0");
+		xValues.add("1");
+		xValues.add("2");
+		xValues.add("3");
+		xValues.add("4");
+		xValues.add("5");
+		xValues.add("6");
+		xValues.add("7");
+		List<LineDataSet> setList = new ArrayList<>();
+		setList.add(dataSet);
+		return new LineData(xValues, setList);
 	}
 
 	private List<Number> getXData() {

@@ -1,10 +1,13 @@
 package com.tuacy.charts.components;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
 public abstract class ComponentBase {
+
+	protected Context mContext;
 
 	/**
 	 * 是否显示
@@ -25,14 +28,14 @@ public abstract class ComponentBase {
 	/**
 	 * 位置大小
 	 */
-	protected float    mTextSize  = 10f;
+	protected float    mTextSize  = 16f;
 	/**
 	 * 文字颜色
 	 */
 	protected int      mTextColor = Color.BLACK;
 
-	public ComponentBase() {
-
+	public ComponentBase(Context context) {
+		mContext = context;
 	}
 
 	public float getXOffset() {

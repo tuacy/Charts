@@ -1,8 +1,11 @@
 package com.tuacy.charts.components;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.util.Log;
+
+import com.tuacy.charts.utils.DensityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,21 +64,21 @@ public abstract class AxisBase extends ComponentBase {
 	 */
 	protected boolean         mCustomAxisMax           = false;
 	/**
-	 * 轴上的最大值
+	 * 轴上显示的最大值
 	 */
 	public    float           mAxisMaximum             = 0f;
 	/**
-	 * 轴上的最小值
+	 * 轴上显示的最小值
 	 */
 	public    float           mAxisMinimum             = 0f;
 	/**
-	 * 轴上每一块的大小
+	 * 轴上显示的值的范围
 	 */
 	public    float           mAxisRange               = 0f;
 
-
-	public AxisBase() {
-		this.mTextSize = 10f;
+	public AxisBase(Context context) {
+		super(context);
+		this.mTextSize = DensityUtils.sp2px(context, 10f);
 		this.mXOffset = 5f;
 		this.mYOffset = 5f;
 		this.mLimitLines = new ArrayList<>();

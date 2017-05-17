@@ -1,5 +1,7 @@
 package com.tuacy.charts.components;
 
+import android.content.Context;
+
 import com.tuacy.charts.formatter.DefaultXAxisValueFormatter;
 import com.tuacy.charts.formatter.XAxisValueFormatter;
 
@@ -12,30 +14,34 @@ public class XAxis extends AxisBase {
 	 * x轴上所有数据的集合
 	 */
 	protected List<String>        mValues                 = new ArrayList<>();
+	/**
+	 * x轴上标签的宽度
+	 */
 	public    int                 mLabelWidth             = 1;
+	/**
+	 * x轴上标签的高度
+	 */
 	public    int                 mLabelHeight            = 1;
-	public    int                 mLabelRotatedWidth      = 1;
-	public    int                 mLabelRotatedHeight     = 1;
-	protected float               mLabelRotationAngle     = 0f;
+	/**
+	 * x轴标签，左边需要空出来的宽度
+	 */
 	private   int                 mSpaceBetweenLabels     = 4;
+	/**
+	 * x轴上标签每次隔多少个画标签
+	 */
 	public    int                 mAxisLabelModulus       = 1;
+	/**
+	 * 是否自定义了x轴上标签隔多少个
+	 */
 	private   boolean             mIsAxisModulusCustom    = false;
-	private   boolean             mAvoidFirstLastClipping = false;
+	/**
+	 * x轴上显示的文字格式化
+	 */
 	protected XAxisValueFormatter mXAxisValueFormatter    = new DefaultXAxisValueFormatter();
 
-	public XAxis() {
-		super();
-
+	public XAxis(Context context) {
+		super(context);
 		mYOffset = 4.f; // -3
-	}
-
-
-	public float getLabelRotationAngle() {
-		return mLabelRotationAngle;
-	}
-
-	public void setLabelRotationAngle(float angle) {
-		mLabelRotationAngle = angle;
 	}
 
 	public void setSpaceBetweenLabels(int spaceCharacters) {
@@ -62,14 +68,6 @@ public class XAxis extends AxisBase {
 
 	public int getSpaceBetweenLabels() {
 		return mSpaceBetweenLabels;
-	}
-
-	public void setAvoidFirstLastClipping(boolean enabled) {
-		mAvoidFirstLastClipping = enabled;
-	}
-
-	public boolean isAvoidFirstLastClippingEnabled() {
-		return mAvoidFirstLastClipping;
 	}
 
 	public void setValues(List<String> values) {

@@ -1,6 +1,7 @@
 package com.tuacy.charts.components;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
@@ -57,7 +58,8 @@ public class LimitLine extends ComponentBase {
 	 *
 	 * @param limit - the position (the value) on the y-axis (y-value) or x-axis (xIndex) where this line should appear
 	 */
-	public LimitLine(float limit) {
+	public LimitLine(Context context, float limit) {
+		super(context);
 		mLimit = limit;
 	}
 
@@ -67,7 +69,8 @@ public class LimitLine extends ComponentBase {
 	 * @param limit - the position (the value) on the y-axis (y-value) or x-axis (xIndex) where this line should appear
 	 * @param label - provide "" if no label is required
 	 */
-	public LimitLine(float limit, String label) {
+	public LimitLine(Context context, float limit, String label) {
+		super(context);
 		mLimit = limit;
 		mLabel = label;
 	}
